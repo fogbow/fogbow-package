@@ -1,4 +1,4 @@
-ourgrid-package
+opportunistic-nc-package
 ===============
 
 Building our packages
