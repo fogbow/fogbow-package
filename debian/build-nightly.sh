@@ -19,7 +19,7 @@ DATE=$(date +%Y%m%d)
 DATE_REPR=$(date -R)
 
 DOWNLOAD_ROOT=/tmp/build
-GIT_URL=https://github.com/OurGrid/OurGrid.git
+GIT_URL=https://github.com/OurGrid/opportunistic-nc.git
 GIT_PATH=$BUILD_DIR/git
 
 # Updating git folder
@@ -32,6 +32,7 @@ else
 fi
 
 cd $GIT_PATH
+ant compile.src
 REV="$(git log -1 --pretty=format:%h)"
 
 if [ -f $BUILD_DIR/prev.rev ]; then

@@ -1,0 +1,94 @@
+#!/bin/bash
+
+set -e
+pkg=opportunistic-nc
+
+INSTALLATION_DIR="/usr/share/foggy"
+CPU_ARCH=`uname -m`
+CPU_X86_64_ARCH=x86_64
+
+echo
+echo "================================================="
+echo "  Downloading Apache Tomcat ..."
+echo "================================================="
+
+wget -nc -P $INSTALLATION_DIR http://maven.ourgrid.org/repos/foggy/apache-tomcat-foggy.tar.gz
+TOMCAT_DOWNLOADED_NAME="apache-tomcat-foggy.tar.gz"
+TOMCAT_FOGGY_HOME="apache-tomcat-foggy"
+TOMCAT_TMP_DIR=$INSTALLATION_DIR/apache-tomcat-foggy-tmp
+FOGGY_APP_DIR=$INSTALLATION_DIR/$TOMCAT_FOGGY_HOME/webapps/opportunistic-nc
+mkdir -p $FOGGY_APP_DIR
+cd $INSTALLATION_DIR
+tar -xzf $TOMCAT_DOWNLOADED_NAME
+rm -f $TOMCAT_DOWNLOADED_NAME
+mv $TOMCAT_TMP_DIR/server.xml $INSTALLATION_DIR/$TOMCAT_FOGGY_HOME/conf/
+mv $TOMCAT_TMP_DIR/axis2-web $FOGGY_APP_DIR/
+mv $TOMCAT_TMP_DIR/META-INF $FOGGY_APP_DIR/
+mv $TOMCAT_TMP_DIR/WEB-INF $FOGGY_APP_DIR/
+mv $TOMCAT_TMP_DIR/classes $FOGGY_APP_DIR/WEB-INF/
+
+echo
+echo "================================================="
+echo "  Downloading QEMU ..."
+echo "================================================="
+
+QEMU_HOME=$INSTALLATION_DIR/qemu
+if [ "$CPU_ARCH" == "$CPU_X86_64_ARCH" ]; then 
+        QEMU_DOWNLOAD_URL="http://maven.ourgrid.org/repos/linux/qemu/linux-qemu/qemu-arch64.tar.gz"
+        QEMU_DOWNLOADED_NAME="qemu-arch64.tar.gz"
+        FOGGY_UTILS_URL="http://maven.ourgrid.org/repos/foggy/foggy-utils-amd64.tar.gz"
+        FOGGY_UTILS_DOWNLOADED_NAME="foggy-utils-amd64.tar.gz"
+else
+        QEMU_DOWNLOAD_URL="http://maven.ourgrid.org/repos/linux/qemu/linux-qemu/qemu-arch32.tar.gz"
+        QEMU_DOWNLOADED_NAME="qemu-arch32.tar.gz"
+        FOGGY_UTILS_URL="http://maven.ourgrid.org/repos/foggy/foggy-utils-i386.tar.gz"
+        FOGGY_UTILS_DOWNLOADED_NAME="foggy-utils-i386.tar.gz"
+fi
+wget -nc -P $QEMU_HOME $QEMU_DOWNLOAD_URL
+cd $QEMU_HOME
+tar -xzf $QEMU_DOWNLOADED_NAME
+rm -f $QEMU_HOME/$QEMU_DOWNLOADED_NAME
+cd $QEMU_HOME/bin
+wget -nc $FOGGY_UTILS_URL
+tar -xzf $FOGGY_UTILS_DOWNLOADED_NAME
+rm -f $QEMU_HOME/bin/$FOGGY_UTILS_DOWNLOADED_NAME
+
+echo
+echo "================================================="
+echo "  Creating useless keystory file at /etc/foggy/keystore ..."
+echo "================================================="
+
+mkdir -p /etc/foggy
+touch /etc/foggy/keystore.jks
+
+echo
+echo "================================================="
+echo "  Creating foggy system user"
+echo "================================================="
+
+adduser --system --quiet --group --disabled-password \
+		--gecos "foggy sys account" \
+        --home "/var/run/$pkg" \
+        foggy || true
+        
+chown -R foggy:foggy /etc/foggy
+chown -R foggy:foggy $INSTALLATION_DIR
+
+# Creating log directory and changing owner to OurGrid
+mkdir -p /var/log/foggy
+chown -R foggy:foggy /var/log/foggy
+
+mkdir /var/run/foggy
+chown -R foggy:foggy /var/run/ourgrid
+
+chown ourgrid /usr/bin/worker
+chown -R foggy /etc/foggy
+
+chown -R root:root $QEMU_HOME/bin/iscsi-utils
+chown -R root:root $QEMU_HOME/bin/qemu-bridge
+chmod -R 4755 $QEMU_HOME/bin/iscsi-utils
+chmod -R 4755 $QEMU_HOME/bin/qemu-bridge
+chown -R root:root $INSTALLATION_DIR/idleness
+chmod -R 4755 $INSTALLATION_DIR/idleness
+
+usermod -a -G kvm foggy || true

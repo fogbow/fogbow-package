@@ -2,7 +2,7 @@
 
 set -e
 
-pkg=ourgrid-worker-qemu
+pkg=opportunistic-nc
 
 
 exit 0

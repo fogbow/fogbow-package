@@ -1,0 +1,6 @@
+PROJECT_NAME=opportunistic-nc
+PACKAGE=opportunistic-nc
+GIT_URL=https://github.com/OurGrid/opportunistic-nc
+DIST_VERSION=1.0
+DIST=unstable
+BUILD_ARCH=all

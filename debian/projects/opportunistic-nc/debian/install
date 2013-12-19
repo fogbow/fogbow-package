@@ -1,0 +1,6 @@
+tools/idleness/idleness /usr/share/foggy
+WebContent/axis2-web /usr/share/foggy/apache-tomcat-foggy-tmp
+WebContent/META-INF /usr/share/foggy/apache-tomcat-foggy-tmp
+WebContent/WEB-INF /usr/share/foggy/apache-tomcat-foggy-tmp
+build/classes /usr/share/foggy/apache-tomcat-foggy-tmp
+resources/server.xml /usr/share/foggy/apache-tomcat-foggy-tmp
