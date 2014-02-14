@@ -32,7 +32,6 @@ else
 fi
 
 cd $GIT_PATH
-ant compile.src
 REV="$(git log -1 --pretty=format:%h)"
 
 if [ -f $BUILD_DIR/prev.rev ]; then

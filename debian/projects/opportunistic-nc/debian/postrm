@@ -1,12 +1,7 @@
 #!/bin/sh -e
 
-update-rc.d -f worker-qemu remove
-rm -rf /etc/ourgrid/worker-qemu*
-rm -rf /etc/ourgrid/qemu_images
-rm -rf /etc/ourgrid/qemu
-rm -rf /var/log/ourgrid/worker-qemu*.log*
-rm -rf /etc/ourgrid/bin/xprintidle
-rm -rf /etc/ourgrid/idleness
-rm -rf /var/run/ourgrid
+rm -rf /etc/foggy
+rm -rf /var/log/foggy
+rm -rf /var/run/foggy
 
 exit 0

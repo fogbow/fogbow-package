@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+pkg=opportunistic-nc
+
+INSTALLATION_DIR="/usr/share/foggy"
+CPU_ARCH=`uname -m`
+CPU_X86_64_ARCH=x86_64
+
+echo
+echo "================================================="
+echo "  Downloading Apache Tomcat ..."
+echo "================================================="
+
+wget -nc -P $INSTALLATION_DIR http://maven.ourgrid.org/repos/foggy/apache-tomcat-foggy.tar.gz
+TOMCAT_DOWNLOADED_NAME="apache-tomcat-foggy.tar.gz"
+TOMCAT_FOGGY_HOME="apache-tomcat-foggy"
+FOGGY_APP_DIR=$INSTALLATION_DIR/$TOMCAT_FOGGY_HOME/webapps/opportunistic-nc
+mkdir -p $FOGGY_APP_DIR
+cd $INSTALLATION_DIR
+tar -xzf $TOMCAT_DOWNLOADED_NAME
+rm -f $TOMCAT_DOWNLOADED_NAME

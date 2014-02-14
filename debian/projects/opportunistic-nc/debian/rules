@@ -33,4 +33,5 @@ CDBS_RECOMMENDS_$(pkg) = kvm
 #  * source patched to load config from code dir (not oddly one dir out)
 #  * Add dummy config to support help2man usage from staging area
 build/$(pkg)::
+	ant compile.src
 clean::
