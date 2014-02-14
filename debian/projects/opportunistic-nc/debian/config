@@ -2,7 +2,7 @@
 
 set -e
 
-pkg=opportunistic-nc
+pkg=foggy
 
 
 exit 0

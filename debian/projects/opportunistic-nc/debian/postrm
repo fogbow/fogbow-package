@@ -3,5 +3,6 @@
 rm -rf /etc/foggy
 rm -rf /var/log/foggy
 rm -rf /var/run/foggy
+rm -rf /usr/share/foggy
 
 exit 0

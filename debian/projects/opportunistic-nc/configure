@@ -1,5 +1,5 @@
-PROJECT_NAME=opportunistic-nc
-PACKAGE=opportunistic-nc
+PROJECT_NAME=foggy
+PACKAGE=foggy
 GIT_URL=https://github.com/OurGrid/opportunistic-nc
 DIST_VERSION=1.0
 DIST=unstable

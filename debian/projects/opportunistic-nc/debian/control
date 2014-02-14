@@ -1,4 +1,4 @@
-Source: opportunistic-nc
+Source: foggy
 Section: misc
 Priority: optional
 Maintainer: Marcos Nobrega <marcosancj@lsd.ufcg.edu.br>
@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 8), openjdk-6-jdk, cdbs, maven2
 Standards-Version: 1.0
 Homepage: http://ourgrid.org
 
-Package: opportunistic-nc
+Package: foggy
 Architecture: all
 Pre-Depends: ${cdbs:Pre-Depends}
 Depends: ${misc:Depends},
