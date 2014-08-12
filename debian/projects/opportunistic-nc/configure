@@ -1,3 +1,4 @@
+IS_ACTIVE=false
 PROJECT_NAME=foggy
 PACKAGE=foggy
 GIT_URL=https://github.com/OurGrid/opportunistic-nc
