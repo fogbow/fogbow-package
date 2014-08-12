@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+rm -rf /usr/bin/fogbow-cli
+
+exit 0

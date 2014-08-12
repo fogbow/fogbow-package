@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e
+pkg=fogbow-cli
+
+INSTALLATION_DIR="/usr/share/fogbow-cli"
+CPU_ARCH=`uname -m`
+CPU_X86_64_ARCH=x86_64
+
+adduser --system --quiet --group --disabled-password \
+		--gecos "fogbow sys account" \
+        --home "/var/run/fogbow" \
+        fogbow || true
+        
+chown -R fogbow:fogbow $INSTALLATION_DIR
+ln -s $INSTALLATION_DIR/bin/fogbow-cli /usr/bin/fogbow-cli

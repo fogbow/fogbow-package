@@ -1,0 +1,9 @@
+DEBFULLNAME="Francisco Germano (Fogbow Packaging)"
+DEBEMAIL="chicog@lsd.ufcg.edu.br"
+IS_ACTIVE=true
+PROJECT_NAME=fogbow-cli
+PACKAGE=fogbow-cli
+GIT_URL=https://github.com/fogbow/fogbow-cli.git
+DIST_VERSION=1.0
+DIST=unstable
+BUILD_ARCH=all

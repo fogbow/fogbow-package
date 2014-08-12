@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+pkg=fogbow-cli
+
+
+exit 0
