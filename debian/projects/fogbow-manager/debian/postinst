@@ -16,19 +16,16 @@ adduser --system --quiet --group --disabled-password \
 
 chown -R fogbow:fogbow $INSTALLATION_DIR
 
-cp $INSTALLATION_DIR/fogbow-manager.example $INSTALLATION_DIR/fogbow-manager
+cp $INSTALLATION_DIR/log4j.properties.example $INSTALLATION_DIR/log4j.properties
 cp $INSTALLATION_DIR/manager.conf.example $INSTALLATION_DIR/manager.conf
 
 mkdir -p $LOG_DIR
 chown -R fogbow:fogbow $LOG_DIR
 
-ln -s $INSTALLATION_DIR/bin/fogbow-manager /usr/bin/fogbow-manager
-
 mkdir -p $CONF_DIR
 chown -R fogbow:fogbow $CONF_DIR
 
-ln -s $INSTALLATION_DIR/log4.properties /etc/fogbow-manager/log4.properties
-ln -s $INSTALLATION_DIR/manager.conf /etc/fogbow-manager/manager.conf
-ln -s $INSTALLATION_DIR/contrib/upstart/fogbow-manager.conf /etc/init/fogbow-manager.conf
+ln -sf $INSTALLATION_DIR/log4j.properties /etc/fogbow-manager/log4j.properties
+ln -sf $INSTALLATION_DIR/manager.conf /etc/fogbow-manager/manager.conf
 
 service fogbow-manager start

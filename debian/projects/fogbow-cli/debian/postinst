@@ -13,4 +13,4 @@ adduser --system --quiet --group --disabled-password \
 	fogbow || true
         
 chown -R fogbow:fogbow $INSTALLATION_DIR
-ln -s $INSTALLATION_DIR/bin/fogbow-cli /usr/bin/fogbow-cli
+ln -sf $INSTALLATION_DIR/bin/fogbow-cli /usr/bin/fogbow-cli

@@ -1,5 +1,5 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
-service fogbow-manager stop
+service fogbow-manager stop || true
 
 exit 0
