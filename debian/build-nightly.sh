@@ -26,7 +26,7 @@ for PROJECT_FOLDER in $PROJECTS_DIR/*; do
 
   if [ "$IS_ACTIVE" == "false" ]; then
     echo "Skipping $PROJECT_FOLDER. Project is not active."
-    break 
+    continue
   fi
 
   # Setting project properties

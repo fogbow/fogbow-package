@@ -1,0 +1,9 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: fogbow-rendezvous
+Upstream-Contact: Francisco Germano <chicog@lsd.ufcg.edu.br>
+
+Files: *
+Copyright: Copyright 2014 Francisco Germano <chicog@lsd.ufcg.edu.br>
+License: Apache-2
+ fogbow-rendezvous is distributed under the Apache License 2.0. See the
+ `LICENSE` file.

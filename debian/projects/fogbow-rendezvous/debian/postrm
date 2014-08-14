@@ -1,0 +1,6 @@
+#!/bin/bash -e
+
+service fogbow-rendezvous stop || true
+rm -rf /etc/init/fogbow-rendezvous.conf
+
+exit 0

@@ -13,7 +13,7 @@ adduser --system --quiet --group --disabled-password \
 		--gecos "fogbow sys account" \
         --home "/var/run/fogbow" \
         fogbow || true
-        
+
 chown -R fogbow:fogbow $INSTALLATION_DIR
 
 cp $INSTALLATION_DIR/fogbow-manager.example $INSTALLATION_DIR/fogbow-manager

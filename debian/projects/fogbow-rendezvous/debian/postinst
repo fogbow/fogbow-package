@@ -1,0 +1,34 @@
+#!/bin/bash
+
+set -e
+pkg=fogbow-rendezvous
+
+INSTALLATION_DIR="/usr/share/fogbow-rendezvous"
+CPU_ARCH=`uname -m`
+CPU_X86_64_ARCH=x86_64
+LOG_DIR="/var/log/fogbow-rendezvous"
+CONF_DIR="/etc/fogbow-rendezvous"
+
+adduser --system --quiet --group --disabled-password \
+	--gecos "fogbow sys account" \
+        --home "/var/run/fogbow" \
+        fogbow || true
+        
+chown -R fogbow:fogbow $INSTALLATION_DIR
+
+cp $INSTALLATION_DIR/log4j.properties.example $INSTALLATION_DIR/log4j.properties
+cp $INSTALLATION_DIR/rendezvous.conf.example $INSTALLATION_DIR/rendezvous.conf
+
+mkdir -p $LOG_DIR
+chown -R fogbow:fogbow $LOG_DIR
+
+ln -s $INSTALLATION_DIR/bin/fogbow-rendezvous /usr/bin/fogbow-rendezvous
+
+mkdir -p $CONF_DIR
+chown -R fogbow:fogbow $CONF_DIR
+
+ln -s $INSTALLATION_DIR/log4.properties /etc/fogbow-rendezvous/log4.properties
+ln -s $INSTALLATION_DIR/rendezvous.conf /etc/fogbow-rendezvous/rendezvous.conf
+ln -s $INSTALLATION_DIR/contrib/upstart/fogbow-rendezvous.conf /etc/init/fogbow-rendezvous.conf
+
+service fogbow-rendezvous start

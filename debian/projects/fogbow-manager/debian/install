@@ -1,2 +1,4 @@
 target /usr/share/fogbow-manager/
 bin /usr/share/fogbow-manager/
+log4j.properties.example /usr/share/fogbow-manager/
+manager.conf.example /usr/share/fogbow-manager/

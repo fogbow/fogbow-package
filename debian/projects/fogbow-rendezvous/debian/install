@@ -1,0 +1,5 @@
+target /usr/share/fogbow-rendezvous/
+bin /usr/share/fogbow-rendezvous/
+contrib /usr/share/fobgow-rendezvous
+log4j.properties.example /usr/share/fogbow-rendezvous
+rendezvous.conf.example /usr/share/fogbow-rendezvous
