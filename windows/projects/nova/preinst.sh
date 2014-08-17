@@ -22,7 +22,7 @@ wget http://downloads.sourceforge.net/project/numpy/NumPy/1.8.2/numpy-1.8.2-win3
 numpy-1.8.2-win32-superpack-python2.7.exe
 
 # install hidden deps
-Scripts\pip.exe install pbr jsonpatch cryptography pyparsing cmd2
+Scripts/pip.exe install pbr jsonpatch cryptography pyparsing cmd2
 
 cd $BUILD_DIR
 
@@ -42,7 +42,7 @@ cd $NOVA_DIR
 git checkout stable/havana
 
 # stage qemu-win-driver
-cp -r ../nova-qemu-win-driver/qemuwin nova/virt/
+cp -r $BUILD_DIR/nova-qemu-win-driver/qemuwin nova/virt/
 
 # install nova
 PYTHON_DIR/python.exe setup.py install
