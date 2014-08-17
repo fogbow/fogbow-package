@@ -4,6 +4,7 @@ BUILD_DIR=C:/Temp/Build/nova-win32
 PYTHON_DIR=$BUILD_DIR/Pybow27
 NOVA_DIR=$BUILD_DIR/nova
 
+# Install Python27
 wget https://www.python.org/ftp/python/2.7.8/python-2.7.8.msi
 msiexec /i /qn python-2.7.8.msi TARGETDIR=$PYTHON_DIR
 
