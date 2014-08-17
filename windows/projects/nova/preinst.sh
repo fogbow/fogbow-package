@@ -26,6 +26,13 @@ Scripts\pip.exe install pbr jsonpatch cryptography pyparsing cmd2
 
 cd $BUILD_DIR
 
+# clone and install fogbow-powernap-win32
+git clone https://github.com/fogbow/fogbow-powernap-win32.git
+cd fogbow-powernap-win32
+PYTHON_DIR/python.exe setup.py install
+
+cd $BUILD_DIR
+
 # clone qemu-win-driver
 git clone https://github.com/fogbow/nova-qemu-win-driver.git
 
@@ -39,5 +46,3 @@ cp -r ../nova-qemu-win-driver/qemuwin nova/virt/
 
 # install nova
 PYTHON_DIR/python.exe setup.py install
-
-
