@@ -9,37 +9,11 @@ BUILD_DIR=$CURRENT_DIR/build
 DATE=$(date +%Y%m%d)
 DATE_REPR=$(date -R)
 
-GIT_URL=https://github.com/OurGrid/OurGrid.git
-GIT_PATH=$BUILD_DIR/git
-
-# Updating git folder
-if [ -d "$GIT_PATH" ]; then
-  cd $GIT_PATH
-  git pull
-  cd $CURRENT_DIR
-else
-  git clone $GIT_URL $GIT_PATH
-fi
-
-cd $GIT_PATH
-REV="$(git log -1 --pretty=format:%h)"
-
-if [ -f $BUILD_DIR/prev.rev ]; then
-  REV_PREV="$(cat $BUILD_DIR/prev.rev)"
-fi
-
-if [ "$REV" == "$REV_PREV" ]; then
-  echo "No need to build!"
-  exit 0
-fi
-
-# Save previous build info
-echo "$REV" > $BUILD_DIR/prev.rev
-
 for PROJECT_FOLDER in $PROJECTS_DIR/*; do
   
   echo "Processing project $PROJECT_FOLDER"
   source $PROJECT_FOLDER/configure
+  
   
   # Setting project properties
   PROJECT_PATH=$BUILD_DIR/$PROJECT_NAME
