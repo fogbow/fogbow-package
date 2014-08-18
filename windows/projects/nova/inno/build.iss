@@ -12,6 +12,8 @@ OutputDir=userdocs:.fogbow\setup
 [Files]
 Source: "PyBow27"; DestDir: "{app}"
 
+Name: "{group}\Fogbow\Nova\nova.conf"; Filename: "notepad.exe"; Parameters: "{pf}\Fogbow\Nova\etc\nova.conf";
+
 [UninstallDelete]
 Type: dirifempty; Name: {pf}\Fogbow\Nova; 
 Type: dirifempty; Name: {pf}\Fogbow;
