@@ -1,4 +1,3 @@
-wget.exe http://maven.ourgrid.org/repos/python/PyBow27.zip
 unzip PyBow27.zip
 
 git clone https://github.com/fogbow/nova-qemu-win-driver.git
