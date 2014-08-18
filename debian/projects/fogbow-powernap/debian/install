@@ -1,0 +1,5 @@
+powernap /usr/share/fogbow-powernap/
+actions /usr/share/fogbow-powernap/
+contrib /usr/share/fogbow-powernap/
+setup.py /usr/share/fogbow-powernap
+setup.cfg /usr/share/fogbow-powernap

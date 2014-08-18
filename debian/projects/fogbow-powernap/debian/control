@@ -1,0 +1,16 @@
+Source: fogbow-powernap
+Section: misc
+Priority: optional
+Maintainer: Francisco Germano <chicog@lsd.ufcg.edu.br>
+Build-Depends:  debhelper (>= 8), cdbs
+Standards-Version: 1.0
+Homepage: http://fogbowcloud.org
+
+Package: fogbow-powernap
+Architecture: all
+Pre-Depends: ${cdbs:Pre-Depends}
+Depends: ${misc:Depends},
+ ${cdbs:Depends}
+Recommends: ${cdbs:Recommends}
+Suggests: ${cdbs:Suggests}
+Description: Opportunism is a feature that allows shared resources to be used as processing nodes of a private infrastructure-as-a-service cloud. Each shared resource can be configured to define when it is deemed usable by the cloud, eg. when it is idle, or when the utilization is below some threshold. When the resources are in a state that allows them to be used by the cloud, then they show up to the cloud manager and can be used to have VM instances allocated to them, otherwise they are removed from the cloud, in which case, any VM instance that is still running in the resource is either suspended or simply terminated.i
