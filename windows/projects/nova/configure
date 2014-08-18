@@ -1,0 +1,5 @@
+PROJECT_NAME=fogbow-nova
+PACKAGE=fogbow-nova
+IS_ACTIVE=true
+DIST_VERSION=0.1
+DIST=unstable
