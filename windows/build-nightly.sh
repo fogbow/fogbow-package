@@ -23,6 +23,7 @@ for PROJECT_FOLDER in $PROJECTS_DIR/*; do
   PROJECT_PATH=$BUILD_DIR/$PROJECT_NAME
   mkdir -p $PROJECT_PATH
 
+  cd $PROJECT_PATH
   cp -r $PROJECT_FOLDER/inno .
   cp -r $CURRENT_DIR/common/* ./inno
   bash ./inno/pre-build.sh
