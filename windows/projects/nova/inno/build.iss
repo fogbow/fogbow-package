@@ -11,7 +11,7 @@ OutputDir=userdocs:.fogbow\setup
 
 [Files]
 Source: "Pybow27\*"; DestDir: "{app}\Pybow27"; Flags: recursesubdirs
-Source: "nova.conf"; DestDir: "{app}\etc\nova.conf"
+Source: "nova.conf"; DestDir: "{app}\etc"
 
 [Icons]
 Name: "{group}\Nova\nova.conf"; Filename: "notepad.exe"; Parameters: "{app}\etc\nova.conf";
