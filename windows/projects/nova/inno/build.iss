@@ -10,10 +10,11 @@ SolidCompression=yes
 OutputDir=userdocs:.fogbow\setup
 
 [Files]
-Source: "PyBow27"; DestDir: "{app}"
+Source: "Pybow27\*"; DestDir: "{app}\Pybow27"; Flags: recursesubdirs
+Source: "nova.conf"; DestDir: "{app}\etc\nova.conf"
 
 [Icons]
-Name: "{group}\Nova\nova.conf"; Filename: "notepad.exe"; Parameters: "{pf}\Fogbow\Nova\etc\nova.conf";
+Name: "{group}\Nova\nova.conf"; Filename: "notepad.exe"; Parameters: "{app}\etc\nova.conf";
 Name: "{group}\Nova\Uninstall"; Filename: "{uninstallexe}";
 
 [UninstallDelete]
