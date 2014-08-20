@@ -11,6 +11,7 @@ OutputDir=userdocs:.fogbow\setup
 
 [Files]
 Source: "Pybow27\*"; DestDir: "{app}\Pybow27"; Flags: recursesubdirs
+Source; "qemu\*"; DestDir: "{app}\qemu"; Flags: recursesubdirs
 Source: "nova.conf"; DestDir: "{app}\etc"
 
 [Icons]
