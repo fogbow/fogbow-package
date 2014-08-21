@@ -4,6 +4,10 @@ if [ ! -d "Pybow27" ]; then
   unzip Pybow27.zip
 fi
 
+if [ ! -d "qemu" ]; then
+  unzip qemu.zip
+fi
+
 rm -rf nova-qemu-win-driver
 git clone https://github.com/fogbow/nova-qemu-win-driver.git
 rm -rf Pybow27/Lib/site-packages/nova/virt/qemuwin

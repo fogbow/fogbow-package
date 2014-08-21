@@ -24,6 +24,7 @@ for PROJECT_FOLDER in $PROJECTS_DIR/*; do
   mkdir -p $PROJECT_PATH
 
   cp -r $PROJECT_FOLDER/inno $PROJECT_PATH
+  cp -r $CURRENT_DIR/common/* $PROJECT_PATH/inno
   cd $PROJECT_PATH/inno
   bash pre-build.sh
   echo "iscc /O\"$PROJECT_PATH\" /F\"$SOURCE\" \"inno/build.iss\""
