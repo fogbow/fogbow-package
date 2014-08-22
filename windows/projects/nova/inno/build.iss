@@ -21,7 +21,7 @@ Name: "{group}\Nova\Uninstall"; Filename: "{uninstallexe}";
 
 [Run]
 Filename: {tmp}\ReplaceTokens.vbs; Parameters: " ""{app}\etc\nova.conf"" ""[[NOVA_DIR]]={code:Normalize|{app}\etc}"" "; Flags: skipifdoesntexist waituntilterminated runhidden shellexec; StatusMsg: Setting configuration
-Filename: "{cmd}"; Parameters: "schtasks /create /sc onstart /tn NovaComputeStarter /rl highest /tr "\"{app}\Pybow27\Scripts\nova-compute.exe\" --config-file \"{app}\etc\nova.conf\"" /ru "SYSTEM""; Flags: runhidden
+Filename: "{cmd}"; Parameters: "schtasks /create /sc onstart /tn NovaComputeStarter /rl highest /tr """"{app}\Pybow27\Scripts\nova-compute.exe"" --config-file ""{app}\etc\nova.conf"""" /ru ""SYSTEM"" "; Flags: runhidden
 Filename: "{cmd}"; Parameters: "schtasks /Run /TN NovaComputeStarter"; Flags: runhidden
 
 [UninstallDelete]
