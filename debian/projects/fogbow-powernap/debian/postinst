@@ -15,4 +15,5 @@ adduser --system --quiet --group --disabled-password \
 chown -R fogbow:fogbow $INSTALLATION_DIR
 
 cd $INSTALLATION_DIR
+cp powernap/sbin/powernapd lib
 python setup.py install

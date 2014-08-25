@@ -1,5 +1,6 @@
 #!/bin/sh -e
 
+service fogbow-powernap stop || true
 rm -rf /etc/fogbow-powernap
 
 exit 0
