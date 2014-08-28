@@ -53,7 +53,7 @@ def install_qemuwindriver(extracted_dir):
 
 def install_fogbow_powernap(extracted_dir):
     os.chdir(extracted_dir)
-    os.system('%s setup.py install' % (os.path.join(pybow_root, 'python.exe')))
+    os.system('"%s" setup.py install' % (os.path.join(pybow_root, 'python.exe')))
 
 def update_project(proj, last_tag):
     if last_tag == current_tags[proj['project_key']]:
