@@ -21,12 +21,12 @@ Source: "powernap.conf"; DestDir: "{commonappdata}\Fogbow\etc"
 Source: "nova.conf"; DestDir: "{commonappdata}\Fogbow\etc"
 
 [Icons]
-Name: "{group}\Nova\nova.conf"; Filename: "{app}\uac.vbs"; Parameters: "notepad.exe {commonappdata}\Fogbow\etc\nova.conf";
-Name: "{group}\Nova\Start Nova"; Filename: "{app}\uac.vbs"; Parameters: "schtasks.exe /Run /TN NovaComputeStarter";
-Name: "{group}\Nova\Stop Nova"; Filename: "{app}\uac.vbs"; Parameters: "schtasks.exe /End /TN NovaComputeStarter";
-Name: "{group}\Powernap\powernap.conf"; Filename: "{app}\uac.vbs"; Parameters: "notepad.exe {commonappdata}\Fogbow\etc\powernap.conf";
-Name: "{group}\Powernap\Start Powernap"; Filename: "{app}\uac.vbs"; Parameters: "schtasks.exe /Run /TN PowernapStarter";
-Name: "{group}\Powernap\Stop Powernap"; Filename: "{app}\uac.vbs"; Parameters: "schtasks.exe /End /TN PowernapStarter";
+Name: "{group}\Nova\nova.conf"; Filename: "{app}\uac.vbs"; Parameters: "notepad.exe {commonappdata}\Fogbow\etc\nova.conf"; IconFilename: "notepad.exe";
+Name: "{group}\Nova\Start Nova"; Filename: "{app}\uac.vbs"; Parameters: "schtasks.exe /Run /TN NovaComputeStarter"; IconFilename: "schtasks.exe";
+Name: "{group}\Nova\Stop Nova"; Filename: "{app}\uac.vbs"; Parameters: "schtasks.exe /End /TN NovaComputeStarter"; IconFilename: "schtasks.exe";
+Name: "{group}\Powernap\powernap.conf"; Filename: "{app}\uac.vbs"; Parameters: "notepad.exe {commonappdata}\Fogbow\etc\powernap.conf"; IconFilename: "notepad.exe";
+Name: "{group}\Powernap\Start Powernap"; Filename: "{app}\uac.vbs"; Parameters: "schtasks.exe /Run /TN PowernapStarter"; IconFilename: "schtasks.exe";
+Name: "{group}\Powernap\Stop Powernap"; Filename: "{app}\uac.vbs"; Parameters: "schtasks.exe /End /TN PowernapStarter"; IconFilename: "schtasks.exe";
 Name: "{group}\Uninstall"; Filename: "{uninstallexe}";
 
 [Run]
@@ -42,7 +42,7 @@ Filename: "schtasks.exe"; Parameters: "/create /F /sc onstart /tn PowernapStarte
 Filename: "schtasks.exe"; Parameters: "/Run /TN PowernapStarter"; Flags: runhidden
 
 ; Updater service
-Filename: "schtasks.exe"; Parameters: "/create /F /sc onstart /sc daily /st 22:00 /tn FogbowUpdater /rl highest /tr ""{\}""{app}\Pybow27\python.exe{\}"" {\}""{app}\updater.py{\}"" {\}""{app}{\}"""" /ru ""SYSTEM"" "; Flags: runhidden
+Filename: "schtasks.exe"; Parameters: "/create /F /sc daily /st 21:34 /tn FogbowUpdater /rl highest /tr ""{\}""{app}\Pybow27\python.exe{\}"" {\}""{app}\updater.py{\}"" {\}""{app}{\}"""" /ru ""SYSTEM"" "; Flags: runhidden
 
 Filename: "sc.exe"; Parameters: "config msiscsi start= auto"; Flags: runhidden
 Filename: "net.exe"; Parameters: "start msiscsi"; Flags: runhidden
