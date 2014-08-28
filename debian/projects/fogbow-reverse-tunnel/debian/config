@@ -1,0 +1,7 @@
+#!/bin/sh
+
+set -e
+
+pkg=fogbow-reverse-tunnel
+
+exit 0
