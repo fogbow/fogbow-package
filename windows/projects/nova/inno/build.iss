@@ -13,6 +13,7 @@ OutputDir=userdocs:.fogbow\setup
 Source: "ReplaceTokens.vbs"; DestDir: "{tmp}"
 Source: "Pybow27\*"; DestDir: "{app}\Pybow27"; Flags: recursesubdirs
 Source: "uac.vbs"; DestDir: "{app}"
+Source: "updater.py"; DestDir: "{app}"
 Source: "tags"; DestDir: "{app}"
 Source: "qemu\*"; DestDir: "{app}\qemu"; Flags: recursesubdirs
 Source: "fogbow-powernap-win32\run.py"; DestDir: "{app}\powernap"
