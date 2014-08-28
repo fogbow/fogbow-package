@@ -1,5 +1,0 @@
-PROJECT_NAME=ourgrid-broker
-PACKAGE=ourgrid-broker
-DIST_VERSION=0.1
-DIST=unstable
-IS_ACTIVE=false

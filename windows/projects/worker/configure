@@ -1,5 +1,0 @@
-IS_ACTIVE=false
-PROJECT_NAME=ourgrid-worker
-PACKAGE=ourgrid-worker
-DIST_VERSION=0.1
-DIST=unstable
