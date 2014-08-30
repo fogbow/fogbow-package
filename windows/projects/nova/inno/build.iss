@@ -30,6 +30,13 @@ Name: "{group}\Powernap\Stop Powernap"; Filename: "{app}\uac.vbs"; Parameters: "
 Name: "{group}\Uninstall"; Filename: "{uninstallexe}";
 
 [Run]
+; Stop and delete services if they already exist
+Filename: "schtasks.exe"; Parameters: "/End /TN NovaComputeStarter"; Flags: runhidden
+Filename: "schtasks.exe"; Parameters: "/Delete /F /TN NovaComputeStarter"; Flags: runhidden
+Filename: "schtasks.exe"; Parameters: "/End /TN PowernapStarter"; Flags: runhidden
+Filename: "schtasks.exe"; Parameters: "/Delete /F /TN PowernapStarter"; Flags: runhidden
+
+; Replace tokens in conf files
 Filename: {tmp}\ReplaceTokens.vbs; Parameters: " ""{commonappdata}\Fogbow\etc\nova.conf"" ""[[NOVA_DIR]]={code:Normalize|{commonappdata}\Fogbow\etc}"" "; Flags: skipifdoesntexist waituntilterminated runhidden shellexec; StatusMsg: Setting configuration
 Filename: {tmp}\ReplaceTokens.vbs; Parameters: " ""{commonappdata}\Fogbow\etc\powernap.conf"" ""[[NOVA_DIR]]={code:Normalize|{commonappdata}\Fogbow\etc}"" "; Flags: skipifdoesntexist waituntilterminated runhidden shellexec; StatusMsg: Setting configuration
 
@@ -44,6 +51,7 @@ Filename: "schtasks.exe"; Parameters: "/Run /TN PowernapStarter"; Flags: runhidd
 ; Updater service
 Filename: "schtasks.exe"; Parameters: "/create /F /sc daily /st 21:34 /tn FogbowUpdater /rl highest /tr ""{\}""{app}\Pybow27\python.exe{\}"" {\}""{app}\updater.py{\}"" {\}""{app}{\}"""" /ru ""SYSTEM"" "; Flags: runhidden
 
+; Activate scsicli
 Filename: "sc.exe"; Parameters: "config msiscsi start= auto"; Flags: runhidden
 Filename: "net.exe"; Parameters: "start msiscsi"; Flags: runhidden
 
@@ -62,4 +70,14 @@ function Normalize(Param: String): String;
 begin
   StringChange(Param, '\', '\\');
   Result := Param
+end;
+
+function PrepareToInstall(var NeedsRestart: Boolean): String;
+var
+  ResultCode: integer;
+begin
+  Exec('schtasks.exe', '/End /TN NovaComputeStarter', '', SW_HIDE, ewWaitUntilTerminated, ResultCode)
+  Exec('schtasks.exe', '/Delete /F /TN NovaComputeStarter', '', SW_HIDE, ewWaitUntilTerminated, ResultCode)
+  Exec('schtasks.exe', '/End /TN PowernapStarter', '', SW_HIDE, ewWaitUntilTerminated, ResultCode)
+  Exec('schtasks.exe', '/Delete /F /TN PowernapStarter', '', SW_HIDE, ewWaitUntilTerminated, ResultCode)
 end;
