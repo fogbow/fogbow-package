@@ -47,3 +47,14 @@ cp -r $BUILD_DIR/nova-qemu-win-driver/qemuwin nova/virt/
 
 # install nova
 PYTHON_DIR/python.exe setup.py install
+
+# install pygithub
+git clone https://github.com/jacquev6/PyGithub.git
+cd PyGithub
+PYTHON_DIR/python.exe setup.py install
+
+# install wmi
+Scripts/pip.exe install wmi
+
+# install pywin32
+http://sourceforge.net/projects/pywin32/files/pywin32/Build%20219/pywin32-219.win32-py2.7.exe/download

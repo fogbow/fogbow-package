@@ -37,11 +37,11 @@ Filename: "schtasks.exe"; Parameters: "/End /TN PowernapStarter"; Flags: runhidd
 Filename: "schtasks.exe"; Parameters: "/Delete /F /TN PowernapStarter"; Flags: runhidden
 
 ; Replace tokens in conf files
-Filename: {tmp}\ReplaceTokens.vbs; Parameters: " ""{commonappdata}\Fogbow\etc\nova.conf"" ""[[NOVA_DIR]]={code:Normalize|{commonappdata}\Fogbow\etc}"" "; Flags: skipifdoesntexist waituntilterminated runhidden shellexec; StatusMsg: Setting configuration
+Filename: {tmp}\ReplaceTokens.vbs; Parameters: " ""{commonappdata}\Fogbow\etc\nova.conf"" ""[[NOVA_DIR]]={code:Normalize|{commonappdata}\Fogbow\etc};[[NOVA_APP_DIR]]={code:Normalize|{app}}"" "; Flags: skipifdoesntexist waituntilterminated runhidden shellexec; StatusMsg: Setting configuration
 Filename: {tmp}\ReplaceTokens.vbs; Parameters: " ""{commonappdata}\Fogbow\etc\powernap.conf"" ""[[NOVA_DIR]]={code:Normalize|{commonappdata}\Fogbow\etc}"" "; Flags: skipifdoesntexist waituntilterminated runhidden shellexec; StatusMsg: Setting configuration
 
 ; Nova compute service
-Filename: "schtasks.exe"; Parameters: "/create /F /sc onstart /tn NovaComputeStarter /rl highest /tr ""{\}""{app}\Pybow27\Scripts\nova-compute.exe{\}"" --config-file {\}""{commonappdata}\Fogbow\etc\nova.conf{\}"""" /ru ""SYSTEM"" "; Flags: runhidden
+Filename: "schtasks.exe"; Parameters: "/create /F /sc onstart /tn NovaComputeStarter /rl highest /tr ""{\}""{app}\Pybow27\python.exe{\}""  {\}""{app}\Pybow27\Scripts\nova-compute-script.py{\}"" --config-file {\}""{commonappdata}\Fogbow\etc\nova.conf{\}"""" /ru ""SYSTEM"" "; Flags: runhidden
 Filename: "schtasks.exe"; Parameters: "/Run /TN NovaComputeStarter"; Flags: runhidden
 
 ; Powernap service
@@ -64,6 +64,8 @@ Filename: "schtasks.exe"; Parameters: "/End /TN NovaComputeStarter"; Flags: runh
 Filename: "schtasks.exe"; Parameters: "/Delete /F /TN NovaComputeStarter"; Flags: runhidden
 Filename: "schtasks.exe"; Parameters: "/End /TN PowernapStarter"; Flags: runhidden
 Filename: "schtasks.exe"; Parameters: "/Delete /F /TN PowernapStarter"; Flags: runhidden
+Filename: "schtasks.exe"; Parameters: "/End /TN FogbowUpdater"; Flags: runhidden
+Filename: "schtasks.exe"; Parameters: "/Delete /F /TN FogbowUpdater"; Flags: runhidden
 
 [Code]
 function Normalize(Param: String): String;
@@ -80,4 +82,6 @@ begin
   Exec('schtasks.exe', '/Delete /F /TN NovaComputeStarter', '', SW_HIDE, ewWaitUntilTerminated, ResultCode)
   Exec('schtasks.exe', '/End /TN PowernapStarter', '', SW_HIDE, ewWaitUntilTerminated, ResultCode)
   Exec('schtasks.exe', '/Delete /F /TN PowernapStarter', '', SW_HIDE, ewWaitUntilTerminated, ResultCode)
+  Exec('schtasks.exe', '/End /TN FogbowUpdater', '', SW_HIDE, ewWaitUntilTerminated, ResultCode)
+  Exec('schtasks.exe', '/Delete /F /TN FogbowUpdater', '', SW_HIDE, ewWaitUntilTerminated, ResultCode)
 end;
