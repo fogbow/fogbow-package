@@ -53,7 +53,7 @@ ORIG_TGZ="${PACKAGE}_${BUILD_VERSION}.orig.tar.gz"
   
 if [ -a "$PROJECT_PATH/$ORIG_TGZ" ]; then
   echo "Skipping $PROJECT_FOLDER. Package is already in its latest version."
-  break
+  exit
 fi
 
 echo "Building orig.tar.gz ..."

@@ -34,4 +34,4 @@ CDBS_DEPENDS_$(pkg) = adduser, default-jre | openjdk-7-jre | openjdk-6-jre
 build/$(pkg)::
 	MAVEN_OPTS="-Duser.home=/etc/maven/.m2 -Dmaven.test.skip=true" mvn install 
 clean::
-	mvn clean
+	MAVEN_OPTS="-Duser.home=/etc/maven/.m2" mvn clean
