@@ -14,7 +14,7 @@ BUILD_DIR="$(cd $(dirname .); pwd)"
 DATE=$(date +%Y%m%d)
 DATE_REPR=$(date -R)
 
-DOWNLOAD_ROOT=/var/www/downloads.buddycloud.com/nightly/debian
+DOWNLOAD_ROOT=/var/www/downloads.fogbowcloud.org/nightly/debian
 
 PROJECT=$1
 PROJECT_FOLDER=$PROJECTS_DIR/$PROJECT
