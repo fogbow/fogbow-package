@@ -14,12 +14,10 @@ BUILD_DIR="$(cd $(dirname .); pwd)"
 DATE=$(date +%Y%m%d)
 DATE_REPR=$(date -R)
 
-DOWNLOAD_ROOT=/tmp/build
+DOWNLOAD_ROOT=/var/www/downloads.buddycloud.com/nightly/debian
 
-# Save previous build info
-# echo "$REV" > $BUILD_DIR/prev.rev
-
-PROJECT_FOLDER=$PROJECTS_DIR/$1
+PROJECT=$1
+PROJECT_FOLDER=$PROJECTS_DIR/$PROJECT
 
 echo "Processing project $PROJECT_FOLDER"
 source $PROJECT_FOLDER/configure
@@ -50,8 +48,9 @@ DIST_REVISION="${BUILD_VERSION}-1"
  
 SOURCE="${PACKAGE}-${BUILD_VERSION}"  
 ORIG_TGZ="${PACKAGE}_${BUILD_VERSION}.orig.tar.gz"
+DEB_FILE="${PACKAGE}_${BUILD_VERSION}-1_all.deb"
   
-if [ -a "$PROJECT_PATH/$ORIG_TGZ" ]; then
+if [ -a "$PROJECT_PATH/$DEB_FILE" ]; then
   echo "Skipping $PROJECT_FOLDER. Package is already in its latest version."
   exit
 fi
@@ -83,4 +82,10 @@ else
   for ARCH in "${ARCHS[@]}"; do
     debuild -a${ARCH} || true
   done
-fi 
+fi
+
+cd $PROJECT_PATH
+DOWNLOAD_DIR=$DOWNLOAD_ROOT/$PROJECT/$SOURCE
+mkdir -p $DOWNLOAD_DIR
+cp * $DOWNLOAD_DIR
+ln -s $DOWNLOAD_DIR/$DEB_FILE $DOWNLOAD_DIR/../${PROJECT}_latest.deb
