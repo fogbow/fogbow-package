@@ -9,7 +9,7 @@ set -e
 DIR_NAME="$(dirname $0)"
 CURRENT_DIR="$(cd $DIR_NAME; pwd)"
 PROJECTS_DIR=$CURRENT_DIR/projects
-BUILD_DIR=.
+BUILD_DIR="$(cd $(dirname .); pwd)"
 
 DATE=$(date +%Y%m%d)
 DATE_REPR=$(date -R)
