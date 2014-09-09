@@ -32,5 +32,6 @@ CDBS_DEPENDS_$(pkg) = adduser, default-jre | openjdk-7-jre | openjdk-6-jre
 #  * source patched to load config from code dir (not oddly one dir out)
 #  * Add dummy config to support help2man usage from staging area
 build/$(pkg)::
-	MAVEN_OPTS="-Dmaven.repo.local=/etc/maven/.m2 -Dmaven.test.skip=true" mvn install 
+	MAVEN_OPTS="-Duser.home=/etc/maven/.m2 -Dmaven.test.skip=true" mvn install 
 clean::
+	mvn clean
