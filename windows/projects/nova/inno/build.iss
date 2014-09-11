@@ -37,7 +37,7 @@ Filename: "schtasks.exe"; Parameters: "/End /TN PowernapStarter"; Flags: runhidd
 Filename: "schtasks.exe"; Parameters: "/Delete /F /TN PowernapStarter"; Flags: runhidden
 
 ; Replace tokens in conf files
-Filename: {tmp}\ReplaceTokens.vbs; Parameters: " ""{commonappdata}\Fogbow\etc\nova.conf"" ""[[NOVA_DIR]]={commonappdata}\Fogbow\etc;[[NOVA_APP_DIR]]={app}"" "; Flags: skipifdoesntexist waituntilterminated runhidden shellexec; StatusMsg: Setting configuration
+Filename: {tmp}\ReplaceTokens.vbs; Parameters: " ""{commonappdata}\Fogbow\etc\nova.conf"" ""[[NOVA_DIR]]={commonappdata}\Fogbow\etc;[[NOVA_APP_DIR]]={app};[[NOVA_HOST]]={computername}"" "; Flags: skipifdoesntexist waituntilterminated runhidden shellexec; StatusMsg: Setting configuration
 Filename: {tmp}\ReplaceTokens.vbs; Parameters: " ""{commonappdata}\Fogbow\etc\powernap.conf"" ""[[NOVA_DIR]]={commonappdata}\Fogbow\etc"" "; Flags: skipifdoesntexist waituntilterminated runhidden shellexec; StatusMsg: Setting configuration
 
 ; Nova compute service
@@ -45,7 +45,7 @@ Filename: "schtasks.exe"; Parameters: "/create /F /sc onstart /tn NovaComputeSta
 Filename: "schtasks.exe"; Parameters: "/Run /TN NovaComputeStarter"; Flags: runhidden
 
 ; Powernap service
-Filename: "schtasks.exe"; Parameters: "/create /F /sc onstart /tn PowernapStarter /rl highest /tr ""{\}""{app}\Pybow27\python.exe{\}"" {\}""{app}\powernap\run.py{\}"" {\}""{commonappdata}\Fogbow\etc\powernap.conf{\}"""" /ru ""SYSTEM"" "; Flags: runhidden
+Filename: "schtasks.exe"; Parameters: "/create /F /sc onlogon /tn PowernapStarter /tr ""{\}""{app}\Pybow27\python.exe{\}"" {\}""{app}\powernap\run.py{\}"" {\}""{commonappdata}\Fogbow\etc\powernap.conf{\}"""" "; Flags: runhidden
 Filename: "schtasks.exe"; Parameters: "/Run /TN PowernapStarter"; Flags: runhidden
 
 ; Updater service
