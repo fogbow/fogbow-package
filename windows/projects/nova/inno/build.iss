@@ -45,7 +45,7 @@ Filename: "schtasks.exe"; Parameters: "/create /F /sc onstart /tn NovaComputeSta
 Filename: "schtasks.exe"; Parameters: "/Run /TN NovaComputeStarter"; Flags: runhidden
 
 ; Powernap service
-Filename: "schtasks.exe"; Parameters: "/create /F /sc onlogon /tn PowernapStarter /tr ""{\}""{app}\Pybow27\python.exe{\}"" {\}""{app}\powernap\run.py{\}"" {\}""{commonappdata}\Fogbow\etc\powernap.conf{\}"""" "; Flags: runhidden
+Filename: "schtasks.exe"; Parameters: "/create /F /sc onlogon /tn PowernapStarter /tr ""{\}""{app}\Pybow27\pythonw.exe{\}"" {\}""{app}\powernap\run.py{\}"" {\}""{commonappdata}\Fogbow\etc\powernap.conf{\}"""" "; Flags: runhidden
 Filename: "schtasks.exe"; Parameters: "/Run /TN PowernapStarter"; Flags: runhidden
 
 ; Updater service
