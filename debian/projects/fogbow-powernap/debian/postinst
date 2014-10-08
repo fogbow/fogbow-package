@@ -14,6 +14,8 @@ adduser --system --quiet --group --disabled-password \
         
 chown -R fogbow:fogbow $INSTALLATION_DIR
 
+mkdir -p /var/run/fogbow-powernap
+
 cd $INSTALLATION_DIR
 mkdir -p lib/
 cp powernap/sbin/powernapd lib/
