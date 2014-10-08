@@ -15,6 +15,7 @@ adduser --system --quiet --group --disabled-password \
 chown -R fogbow:fogbow $INSTALLATION_DIR
 
 mkdir -p /var/run/fogbow-powernap
+chown -R fogbow:fogbow /var/run/fogbow-powernap
 
 cd $INSTALLATION_DIR
 mkdir -p lib/
