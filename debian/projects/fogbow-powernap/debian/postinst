@@ -19,5 +19,5 @@ chown -R fogbow:fogbow /var/run/fogbow-powernap
 
 cd $INSTALLATION_DIR
 mkdir -p lib/
-cp powernap/sbin/powernapd lib/
+cp powernap/sbin/fogbow-powernapd lib/
 python setup.py install
