@@ -6,7 +6,7 @@ pkg=fogbow-green-sitter-agent
 INSTALLATION_DIR="/usr/share/fogbow-green-sitter-agent"
 CPU_ARCH=`uname -m`
 CPU_X86_64_ARCH=x86_64
-LOG_DIR="/var/log/fogbow-green-sitter-agent"
+LOG_DIR="/var/log/fogbow-green-sitter"
 CONF_DIR="/etc/fogbow-green-sitter-agent"
 
 adduser --system --quiet --group --disabled-password \
