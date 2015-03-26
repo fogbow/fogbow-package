@@ -1,5 +1,5 @@
 #!/bin/bash -e
 
-service fogbow-green-agent stop || true
+service fogbow-green-sitter-agent stop || true
 
 exit 0
