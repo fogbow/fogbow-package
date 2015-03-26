@@ -1,4 +1,4 @@
 target /usr/share/fogbow-green-sitter-server/
 contrib/upstart/fogbow-green-sitter-server.conf  /etc/init
 log4j.properties.example /usr/share/fogbow-green-sitter-server
-reverse-tunnel.conf.example /usr/share/fogbow-green-sitter-server
+server.properties.example /usr/share/fogbow-green-sitter-server

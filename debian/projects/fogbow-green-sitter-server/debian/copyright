@@ -1,9 +1,9 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: fogbow-reverse-tunnel
+Upstream-Name: fogbow-green-sitter-server
 Upstream-Contact: Francisco Germano <chicog@lsd.ufcg.edu.br>
 
 Files: *
 Copyright: Copyright 2014 Francisco Germano <chicog@lsd.ufcg.edu.br>
 License: Apache-2
- fogbow-reverse-tunnel is distributed under the Apache License 2.0. See the
+ fogbow-green-sitter-server is distributed under the Apache License 2.0. See the
  `LICENSE` file.
