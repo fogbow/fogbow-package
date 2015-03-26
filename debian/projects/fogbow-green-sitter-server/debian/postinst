@@ -3,7 +3,7 @@
 set -e
 pkg=fogbow-green-sitter-server
 
-INSTALLATION_DIR="/usr/share/fogbow-green-sitter"
+INSTALLATION_DIR="/usr/share/fogbow-green-sitter-server"
 CPU_ARCH=`uname -m`
 CPU_X86_64_ARCH=x86_64
 LOG_DIR="/var/log/fogbow-green-sitter"
