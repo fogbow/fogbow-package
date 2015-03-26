@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -e
+pkg=fogbow-green-sitter-server
+
+INSTALLATION_DIR="/usr/share/fogbow-green-sitter-server"
+CPU_ARCH=`uname -m`
+CPU_X86_64_ARCH=x86_64
+LOG_DIR="/var/log/fogbow-green-sitter-server"
+CONF_DIR="/etc/fogbow-green-sitter-server"
+
+adduser --system --quiet --group --disabled-password \
+	    --gecos "fogbow sys account" \
+        --home "/var/run/fogbow" \
+        fogbow || true
+        
+chown -R fogbow:fogbow $INSTALLATION_DIR
+
+cp $INSTALLATION_DIR/log4j.properties.example $INSTALLATION_DIR/log4j.properties
+cp $INSTALLATION_DIR/server.properties.example $INSTALLATION_DIR/server.properties
+
+mkdir -p $LOG_DIR
+chown -R fogbow:fogbow $LOG_DIR
+
+mkdir -p $CONF_DIR
+chown -R fogbow:fogbow $CONF_DIR
+
+ln -sf $INSTALLATION_DIR/log4j.properties /etc/fogbow-green-sitter-server/log4j.properties
+ln -sf $INSTALLATION_DIR/server.properties /etc/fogbow-green-sitter-server/server.properties
+
+service fogbow-green-sitter-server start

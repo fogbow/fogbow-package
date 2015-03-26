@@ -1,0 +1,5 @@
+#!/bin/bash -e
+
+service fogbow-green-sitter-server stop || true
+
+exit 0

@@ -1,0 +1,34 @@
+#!/bin/bash
+
+set -e
+pkg=fogbow-reverse-tunnel
+
+INSTALLATION_DIR="/usr/share/fogbow-green-sitter-agent"
+CPU_ARCH=`uname -m`
+CPU_X86_64_ARCH=x86_64
+LOG_DIR="/var/log/fogbow-green-sitter-agent"
+CONF_DIR="/etc/fogbow-green-sitter-agent"
+
+adduser --system --quiet --group --disabled-password \
+	    --gecos "fogbow sys account" \
+        --home "/var/run/fogbow" \
+        fogbow || true
+        
+chown -R fogbow:fogbow $INSTALLATION_DIR
+
+cp $INSTALLATION_DIR/log4j.properties.example $INSTALLATION_DIR/log4j.properties
+cp $INSTALLATION_DIR/agent.properties.example $INSTALLATION_DIR/agent.properties
+
+mkdir -p $LOG_DIR
+chown -R fogbow:fogbow $LOG_DIR
+
+mkdir -p $CONF_DIR
+chown -R fogbow:fogbow $CONF_DIR
+
+ln -sf $INSTALLATION_DIR/log4j.properties $CONF_DIR/log4j.properties
+ln -sf $INSTALLATION_DIR/agent.properties $CONF_DIR/agent.properties
+
+chown root:root /etc/sudoers.d/fogbow_sudoers
+chmod 440 /etc/sudoers.d/fogbow_sudoers
+
+service fogbow-reverse-tunnel start

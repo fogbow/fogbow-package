@@ -1,0 +1,5 @@
+target /usr/share/fogbow-green-agent/
+contrib/upstart/fogbow-green-sitter-agent.conf /etc/init
+contrib/sudoers/fogbow_sudoers /etc/sudoers.d
+log4j.properties.example /usr/share/fogbow-green-agent
+agent.properties.example /usr/share/fogbow-green-agent
