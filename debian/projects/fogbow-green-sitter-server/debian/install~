@@ -1,4 +1,0 @@
-target /usr/share/fogbow-reverse-tunnel/
-contrib/upstart/fogbow-reverse-tunnel.conf /etc/init
-log4j.properties.example /usr/share/fogbow-reverse-tunnel
-reverse-tunnel.conf.example /usr/share/fogbow-reverse-tunnel

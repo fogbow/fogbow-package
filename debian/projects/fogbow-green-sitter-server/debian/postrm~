@@ -1,5 +1,0 @@
-#!/bin/bash -e
-
-service fogbow-reverse-tunnel stop || true
-
-exit 0
