@@ -1,0 +1,16 @@
+Source: fogbow-voms-clients-wrapper
+Section: misc
+Priority: optional
+Maintainer: Marcos Nobrega <marcosancj@lsd.ufcg.edu.br>
+Build-Depends: debhelper (>= 8), cdbs
+Standards-Version: 1.0
+Homepage: http://fogbowcloud.org
+
+Package: fogbow-voms-clients-wrapper
+Architecture: all
+Pre-Depends: ${cdbs:Pre-Depends}
+Depends: ${misc:Depends},
+ ${cdbs:Depends}
+Recommends: ${cdbs:Recommends}
+Suggests: ${cdbs:Suggests}
+Description: Wrapper for voms-proxy-init tool to generate normalized proxies.

@@ -1,0 +1,10 @@
+#!/bin/sh -e
+
+if [ -f /usr/bin/voms-proxy-init-helper ]; then
+    if [ -f /usr/bin/voms-proxy-init ]; then
+        rm -rf /usr/bin/voms-proxy-init
+    fi
+    mv /usr/bin/voms-proxy-init-helper /usr/bin/voms-proxy-init
+fi
+
+exit 0

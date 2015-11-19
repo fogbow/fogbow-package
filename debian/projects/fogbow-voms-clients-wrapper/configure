@@ -1,0 +1,9 @@
+DEBFULLNAME="Marcos Nobrega (Fogbow Packaging)"
+DEBEMAIL="marcosancj@lsd.ufcg.edu.br"
+IS_ACTIVE=true
+PROJECT_NAME=fogbow-voms-clients-wrapper
+PACKAGE=fogbow-voms-clients-wrapper
+GIT_URL=https://github.com/fogbow/fogbow-voms-clients-wrapper.git
+DIST_VERSION=1.0
+DIST=unstable
+BUILD_ARCH=all
