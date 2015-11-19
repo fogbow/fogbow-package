@@ -1,5 +1,5 @@
-DEBFULLNAME="Marcos Nobrega (Fogbow Packaging)"
-DEBEMAIL="marcosancj@lsd.ufcg.edu.br"
+DEBFULLNAME="Francisco Germano (Fogbow Packaging)"
+DEBEMAIL="chicog@lsd.ufcg.edu.br"
 IS_ACTIVE=true
 PROJECT_NAME=fogbow-voms-clients-wrapper
 PACKAGE=fogbow-voms-clients-wrapper
