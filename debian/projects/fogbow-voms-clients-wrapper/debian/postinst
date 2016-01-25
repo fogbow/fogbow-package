@@ -7,7 +7,6 @@ INSTALLATION_DIR="/usr/share/fogbow-voms-clients-wrapper"
 CPU_ARCH=`uname -m`
 CPU_X86_64_ARCH=x86_64
 
-chown -R fogbow:fogbow $INSTALLATION_DIR
 if [ -f /usr/bin/voms-proxy-init ]; then
     if ! [ -f /usr/bin/voms-proxy-init-helper ]; then
         cp /usr/bin/voms-proxy-init /usr/bin/voms-proxy-init-helper
