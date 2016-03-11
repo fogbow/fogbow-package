@@ -16,8 +16,12 @@ adduser --system --quiet --group --disabled-password \
 
 chown -R fogbow:fogbow $INSTALLATION_DIR
 
-cp $INSTALLATION_DIR/log4j.properties.example $INSTALLATION_DIR/log4j.properties
-cp $INSTALLATION_DIR/manager.conf.example $INSTALLATION_DIR/manager.conf
+if [[ ! -f $INSTALLATION_DIR/log4j.properties ]]; then
+    cp $INSTALLATION_DIR/log4j.properties.example $INSTALLATION_DIR/log4j.properties
+fi
+if [[ ! -f $INSTALLATION_DIR/manager.conf ]]; then
+    cp $INSTALLATION_DIR/manager.conf.example $INSTALLATION_DIR/manager.conf
+fi
 
 mkdir -p $LOG_DIR
 chown -R fogbow:fogbow $LOG_DIR
