@@ -24,7 +24,7 @@ daemon = $(pkg)
 
 # Needed both at build time and (always) at runtime
 #  * node modules needed at build time to create manpage
-CDBS_DEPENDS_$(pkg) = adduser, python2.7, python-setuptools, python-prettytable, python-novaclient
+CDBS_DEPENDS_$(pkg) = adduser, python2.7, python-setuptools, python-prettytable
 
 
 # DEB_INSTALL_DOCS_ALL += README.md
