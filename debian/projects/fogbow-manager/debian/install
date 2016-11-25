@@ -2,4 +2,4 @@ target /usr/share/fogbow-manager/
 bin /usr/share/fogbow-manager/
 contrib/upstart/fogbow-manager.conf /etc/init
 log4j.properties.example /usr/share/fogbow-manager
-manager.conf.example /usr/share/fogbow-manager
+examples/manager.conf.example /usr/share/fogbow-manager
