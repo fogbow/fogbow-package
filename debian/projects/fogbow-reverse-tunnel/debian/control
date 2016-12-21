@@ -2,7 +2,7 @@ Source: fogbow-reverse-tunnel
 Section: misc
 Priority: optional
 Maintainer: Francisco Germano <chicog@lsd.ufcg.edu.br>
-Build-Depends: debhelper (>= 8), openjdk-7-jdk | openjdk-6-jdk, cdbs, maven | maven2
+Build-Depends: debhelper (>= 8), openjdk-8-jdk | openjdk-7-jdk | openjdk-6-jdk, cdbs, maven | maven2
 Standards-Version: 1.0
 Homepage: http://fogbowcloud.org
 
